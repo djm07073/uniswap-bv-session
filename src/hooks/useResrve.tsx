@@ -19,7 +19,7 @@ export default function useReserve(
   });
 
   const { data: reserve } = useContractRead({
-    address: pair! as `0xstring`,
+    address: pair! as `0x${string}`,
     abi: PAIR_ABI,
     functionName: "getReserves",
   });

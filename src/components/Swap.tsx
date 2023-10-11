@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import useReserve from "../hooks/useResrve";
 import { USDC, WMATIC } from "../App";
 
 export default function Swap() {
-  const { reserve0, reserve1 } = useReserve(WMATIC, USDC);
-  return <div>{(reserve0.toString(), reserve1.toString())}</div>;
+  const [isMatic, setIsMatic] = useState<boolean>(true);
+  const { reserveIn, reserveOut } = useReserve(isMatic, USDC, WMATIC);
+  return (
+    <div>
+      <div>Reserve In: {reserveIn.toString()}</div>
+      <div>Reserve Out: {reserveOut.toString()}</div>
+    </div>
+  );
 }
